@@ -30,9 +30,8 @@ def current_occupancy_level()
   return @customers.count.to_i()
 end
 
-def increase_occupancy_level(increase)
-  @customers += (increase)
+def recieve_money(income)
+  @till += income
 end
-
 
 end

@@ -12,8 +12,9 @@ def setup
 @song2 = Songs.new("Moonage Daydream")
 @song3 = Songs.new("Wild Thing")
 track_list = [@song1, @song2, @song3]
-currently_occupancy = [@customer1]
-@room1 = Rooms.new("The Hive", 0, 5, track_list, currently_occupancy)
+current_occupancy = [@customer1]
+@room1 = Rooms.new("The Hive", 0, 5, track_list, current_occupancy)
+@room2 = Rooms.new("Cab Vol", 0, 5, track_list, 0)
 end
 
 def test_name_of_room
@@ -26,6 +27,11 @@ end
 
 def test_entry_fee
 assert_equal(5, @room1.entry_fee)
+end
+
+def test_pub_can_recieve_money
+  @room1.recieve_money(5)
+  assert_equal(5, @room1.till())
 end
 
 def test_room_has_customers
@@ -53,11 +59,6 @@ end
 def test_current_occupancey
   assert_equal(1, @room1.current_occupancy_level)
 end
-# 
-# def test_increase_occupancy
-#   @customers.increase_occupancy_level(1)
-#   assert_equal(2,@customers.current_occupancy_level())
-# end
 
 
 
