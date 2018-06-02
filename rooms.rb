@@ -26,4 +26,13 @@ def remove_customer(customer)
 return @customers.delete(customer)
 end
 
+def current_occupancy_level()
+  return @customers.count.to_i()
+end
+
+def increase_occupancy_level(increase)
+  @customers += (increase)
+end
+
+
 end

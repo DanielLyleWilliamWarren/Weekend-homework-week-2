@@ -12,8 +12,8 @@ def setup
 @song2 = Songs.new("Moonage Daydream")
 @song3 = Songs.new("Wild Thing")
 track_list = [@song1, @song2, @song3]
-guest_list = [@customer1]
-@room1 = Rooms.new("The Hive", 0, 5, track_list, guest_list)
+currently_occupancy = [@customer1]
+@room1 = Rooms.new("The Hive", 0, 5, track_list, currently_occupancy)
 end
 
 def test_name_of_room
@@ -50,6 +50,14 @@ def test_remove_customer_from_room
   assert_equal([], @room1.customers)
 end
 
+def test_current_occupancey
+  assert_equal(1, @room1.current_occupancy_level)
+end
+# 
+# def test_increase_occupancy
+#   @customers.increase_occupancy_level(1)
+#   assert_equal(2,@customers.current_occupancy_level())
+# end
 
 
 
