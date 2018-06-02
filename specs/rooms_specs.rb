@@ -14,7 +14,7 @@ def setup
 track_list = [@song1, @song2, @song3]
 current_occupancy = [@customer1]
 @room1 = Rooms.new("The Hive", 0, 5, track_list, current_occupancy)
-@room2 = Rooms.new("Cab Vol", 0, 5, track_list, 0)
+# @room2 = Rooms.new("Cab Vol", 0, 5, track_list, )
 end
 
 def test_name_of_room
@@ -60,6 +60,13 @@ def test_current_occupancey
   assert_equal(1, @room1.current_occupancy_level)
 end
 
+def test_max_occupancy__pass
+  assert_equal(true, @room1.max_occupancy())
+end
 
+def test_max_occupancy__fail
+  @room1.add_customer(20)
+  assert_equal(false, @room1.max_occupancy())
+end
 
 end

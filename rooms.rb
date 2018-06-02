@@ -34,4 +34,8 @@ def recieve_money(income)
   @till += income
 end
 
+def max_occupancy
+true if current_occupancy_level <= 11
+end
+
 end
