@@ -11,10 +11,10 @@ def decrease_wallet(amount)
   @wallet -= amount
 end
 
-def pay_entry(room, fee)
-  entry_price = room.entry_price(fee)
+def pay_entry(fee)
+  entry_price = rooms.entry_fee(fee)
   self.decrease_wallet(entry_price)
-  room1.recieve_money(entry_price)
+  rooms.recieve_money(entry_price)
 end
 
 
