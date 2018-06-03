@@ -14,7 +14,7 @@ def setup
   track_list = [@song1, @song2, @song3]
   current_occupancy = [@customer1]
   @room1 = Rooms.new("The Hive", 0, 5, track_list, current_occupancy)
-  @room2 = Rooms.new("Cab Vol", 0, 5, track_list, 0)
+  # @room2 = Rooms.new("Cab Vol", 0, 5, track_list, current_occupancy2)
 end
 
 def test_customer_has_name
