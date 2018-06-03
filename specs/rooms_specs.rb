@@ -8,13 +8,25 @@ class RoomsTest < MiniTest::Test
 def setup
 @customer1 = Customers.new("Bob", 50)
 @customer2 = Customers.new("Dave", 10)
+@customer3 = Customers.new("Mark", 50)
+@customer4 = Customers.new("John", 10)
+@customer5 = Customers.new("Peter", 50)
+@customer6 = Customers.new("Paul", 10)
+@customer7 = Customers.new("Augustus", 50)
+@customer8 = Customers.new("Tiberius", 10)
+@customer9 = Customers.new("Caligula", 50)
+@customer10 = Customers.new("Claudius", 10)
+@customer11 = Customers.new("Nero", 50)
+@customer12 = Customers.new("Galba", 10)
+@customer13 = Customers.new("Otho", 10)
 @song1 = Songs.new("RESPECT")
 @song2 = Songs.new("Moonage Daydream")
 @song3 = Songs.new("Wild Thing")
 track_list = [@song1, @song2, @song3]
-current_occupancy = [@customer1]
-@room1 = Rooms.new("The Hive", 0, 5, track_list, current_occupancy)
-# @room2 = Rooms.new("Cab Vol", 0, 5, track_list, )
+current_occupancy1 = [@customer1]
+current_occupancy2 = [@customer3, @customer4, @customer4, @customer5, @customer6, @customer7, @customer8, @customer9, @customer10, @customer11, @customer12]
+@room1 = Rooms.new("The Hive", 0, 5, track_list, current_occupancy1)
+@room2 = Rooms.new("Cab Vol", 0, 5, track_list, current_occupancy2)
 end
 
 def test_name_of_room
@@ -48,7 +60,7 @@ end
 
 def test_add_customer_to_room
 @room1.add_customer(@customer2)
-assert_equal([@customer1,@customer2], @room1.customers)
+assert_equal([@customer1,@customer2], @room1.customers())
 end
 
 def test_remove_customer_from_room
@@ -60,13 +72,12 @@ def test_current_occupancey
   assert_equal(1, @room1.current_occupancy_level)
 end
 
-def test_max_occupancy__pass
+def test_max_occupancy
   assert_equal(true, @room1.max_occupancy())
 end
 
-def test_max_occupancy__fail
-  @room1.add_customer(20)
-  assert_equal(false, @room1.max_occupancy())
+def test_max_occupancy
+  assert_equal(false, @room2.max_occupancy_full())
 end
 
 end

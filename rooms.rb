@@ -38,4 +38,8 @@ def max_occupancy
 true if current_occupancy_level <= 11
 end
 
+def max_occupancy_full
+false if current_occupancy_level >= 10
+end
+
 end
